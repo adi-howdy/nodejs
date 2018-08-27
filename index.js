@@ -8,16 +8,18 @@ var rect = {
 var rect = require('./rectangle');
 
 function solve(l,b){
-    console.log("solvin log " + l + " and " + b)
+    console.log("solvin " + l + " and " + b)
 
-    if(l<=0 || b<=0){
-        console.log("error in input")
-    }
-    else 
-    {
-        console.log("area " + rect.area(l,b))
-        console.log("per: " + rect.per(l,b))
-    }
+   rect(l,b , (err,rectangle) => {
+       if(err){
+           console.error("Error: ", err.message);
+       }
+       else{
+           console.log("area: " + rectangle.area());
+           console.log("perimeter: " + rectangle.per());
+       }
+   });
+   console.log("delay after callback");
 }
 
 solve(2,3);
