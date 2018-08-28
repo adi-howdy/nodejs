@@ -1,0 +1,6 @@
+start npm usnig 
+
+npm start
+
+Http ko lagi we used postman
+
