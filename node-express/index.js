@@ -1,11 +1,16 @@
 const express = require('express');
 const http = require('http');
+const morgan = require('morgan');
 
 const hostname = 'localhost';
 const port = 3000;
 
 //application gonna use express
 const app = express();
+app.use(morgan('dev'));
+
+//root folder to start with for express
+app.use(express.static(__dirname+ '/public')); 
 
 app.use((req,res,next) => {
     console.log(req.headers);
