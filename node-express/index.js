@@ -6,11 +6,18 @@ const bodyParser = require('body-parser');
 const hostname = 'localhost';
 const port = 3000;
 
+//for router module
+const dishRouter = require('./routes/dishRouter');
+
+
+
 //application gonna use express
 const app = express();
 //app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use('/dishes', dishRouter);
 
+/*
 app.all('/dishes', (req,res,next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type','text/plain');
@@ -58,7 +65,7 @@ app.put('/dishes/:dishId', (req,res,next) => {
 app.delete('/dishes/:dishId', (req,res,next) => {
     res.end( 'Deleting all the dishes' + req.param.dishId); 
 });
-
+*/
 //root folder to start with for express
 app.use(express.static(__dirname+ '/public')); 
 
